@@ -29,26 +29,18 @@ Protect your source. Ship with confidence.
 
 ## Overview
 
-**OccLua** is a Lua and Luau obfuscator written entirely in **Rust**.
+**OccLua** is a Lua and Luau obfuscator written in Rust.
 
-It provides configurable protection profiles through a fast native core and a developer-focused CLI, making it straightforward to protect scripts without getting buried in configuration.
+It keeps the interface simple: pick a profile, point it at your script, and let the core handle the transformations.
 
-```text
-Source
-  │
-  ▼
-┌─────────────────┐
-│     OccLua      │
-│                 │
-│  Transform      │
-│  Compact        │
-│  Rename         │
-│  Validate       │
-└────────┬────────┘
-         │
-         ▼
-Protected Source
-```
+### What it does
+
+| Profile | What happens |
+|:--|:--|
+| `Basic` | Removes comments |
+| `Standard` | Compacts whitespace |
+| `Strong` | Compacts code and renames locals |
+| `Max` | Uses the strongest available transformations |
 
 ## Features
 
@@ -63,17 +55,6 @@ Protected Source
 - Interactive terminal interface
 - Command autocomplete
 - Persistent configuration
-
-## Protection Profiles
-
-| Profile | Protection |
-|:--|:--|
-| `Basic` | Comment removal |
-| `Standard` | Whitespace compaction |
-| `Strong` | Compaction + local renaming |
-| `Max` | Maximum available transformations |
-
-> Profiles will expand as the protection engine develops.
 
 ## Quick Start
 
@@ -169,7 +150,7 @@ cargo test
 
 ## Example
 
-### Input
+**Input**
 
 ```lua
 local message = "Hello, world!"
@@ -177,13 +158,13 @@ local message = "Hello, world!"
 print(message)
 ```
 
-### Output
+**Protected**
 
 ```lua
 local a="Hello, world!"print(a)
 ```
 
-Output varies depending on the selected protection profile and target version.
+The result depends on the selected profile and target version.
 
 ## Project Status
 
