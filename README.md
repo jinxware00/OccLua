@@ -2,7 +2,7 @@
 
 # ☾ OccLua
 
-**Lua & Luau Obfuscator built with Rust**
+**Lua Obfuscator**
 
 Protect your source. Ship with confidence.
 
@@ -21,7 +21,7 @@ Protect your source. Ship with confidence.
 
 ### 🌙
 
-*A native Lua/Luau protection tool designed around speed, simplicity, and control.*
+*A native Lua/Luau protection tool.*
 
 </div>
 
@@ -30,8 +30,6 @@ Protect your source. Ship with confidence.
 ## Overview
 
 **OccLua** is a Lua and Luau obfuscator written in Rust.
-
-It keeps the interface simple: pick a profile, point it at your script, and let the core handle the transformations.
 
 ### What it does
 
@@ -44,10 +42,8 @@ It keeps the interface simple: pick a profile, point it at your script, and let 
 
 ## Features
 
-- **Rust-powered core** for fast local processing
-- **Lua 5.1, 5.2, 5.3 and 5.4**
-- **Luau support**
-- Multiple protection profiles
+- **Lua 5.1, 5.2, 5.3 and 5.4 and Luau support**
+- Multiple protection configuration
 - Local identifier renaming
 - Whitespace compaction
 - Comment removal
@@ -106,21 +102,6 @@ Change the target from inside OccLua:
 ❯ /version
 ```
 
-## Built with Rust
-
-OccLua is a Rust workspace split between the protection engine and CLI:
-
-```text
-OccLua/
-├── core/       # Obfuscation engine
-├── cli/        # Interactive CLI
-├── scripts/    # Build & installation scripts
-├── Cargo.toml
-└── Cargo.lock
-```
-
-The **Rust core is the source of truth** for the transformation pipeline.
-
 ## Development
 
 Clone the repository:
@@ -172,7 +153,6 @@ OccLua is actively developed.
 
 ### Available
 
-- [x] Rust workspace
 - [x] Native protection core
 - [x] Interactive CLI
 - [x] Project management
@@ -180,7 +160,7 @@ OccLua is actively developed.
 - [x] Protection profiles
 - [x] Lua version selection
 - [x] Interactive autocomplete
-- [x] Licence interface
+- [x] License interface
 
 ### Planned
 
@@ -202,7 +182,5 @@ The repository may be publicly visible, but the source is not released under an 
 **☾ OccLua**
 
 *Protect your Lua. Keep your code yours.*
-
-Built with Rust.
 
 </div>
