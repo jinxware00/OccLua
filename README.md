@@ -2,7 +2,7 @@
 
 # ☾ OccLua
 
-**Lua Obfuscator**
+### Lua & Luau Obfuscator
 
 Protect your source. Ship with confidence.
 
@@ -13,173 +13,146 @@ Protect your source. Ship with confidence.
 [![Luau](https://img.shields.io/badge/Luau-Supported-00A6D6?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-Proprietary-111827?style=flat-square)](LICENSE.md)
 
-</div>
+<br>
 
----
-
-<div align="center">
-
-### 🌙
-
-*A native Lua/Luau protection tool.*
+<img src="docs/assets/occlua-demo.gif" alt="OccLua" width="850">
 
 </div>
 
 ---
 
-## Overview
+## OccLua
 
-**OccLua** is a Lua and Luau obfuscator written in Rust.
+OccLua is a native Lua and Luau obfuscator built in Rust.
 
-### What it does
+Designed for developers who want to distribute Lua code without handing
+out clean, readable source.
 
-| Profile | What happens |
+Configure a subscription, choose the protection available to your plan,
+and keep the workflow inside OccLua.
+
+---
+
+## Subscriptions
+
+OccLua uses subscription tiers to determine the protection and features
+available to you.
+
+| Subscription | Protection |
 |:--|:--|
-| `Basic` | Removes comments |
-| `Standard` | Compacts whitespace |
-| `Strong` | Compacts code and renames locals |
-| `Max` | Uses the strongest available transformations |
+| **Basic** | Comment removal |
+| **Standard** | Comment removal + whitespace compaction |
+| **Strong** | Standard + local identifier renaming |
+| **Max** | Maximum available transformations |
 
-## Features
+Subscription features may change as OccLua develops.
 
-- **Lua 5.1, 5.2, 5.3 and 5.4 and Luau support**
-- Multiple protection configuration
-- Local identifier renaming
-- Whitespace compaction
-- Comment removal
-- Project-based configuration
+---
+
+## Supported Targets
+
+| Target | Status |
+|:--|:--|
+| Lua 5.1 | Supported |
+| Lua 5.2 | Supported |
+| Lua 5.3 | Supported |
+| Lua 5.4 | Supported |
+| Luau | Supported |
+
+---
+
+## Built for Developers
+
+- Native Rust implementation
 - Interactive terminal interface
+- Project-based configuration
+- Persistent settings
+- Subscription-based protection
+- Local identifier renaming
+- Comment removal
+- Whitespace compaction
 - Command autocomplete
-- Persistent configuration
+- Lua/Luau version targeting
 
-## Quick Start
+---
 
-### Direct CLI
+## Installation
+
+### Windows
 
 ```powershell
-occlua script.lua
+irm https://occlua.dev/install.ps1 | iex
 ```
 
-### Interactive mode
+Then:
 
 ```powershell
 occlua
 ```
 
-Then use:
+> The installer downloads the appropriate prebuilt OccLua binary. Rust
+> and Cargo are not required.
+
+---
+
+## Why OccLua?
+
+OccLua is built around a simple idea:
+
+**Give developers control over how their Lua is protected.**
+
+Choose the subscription that fits your needs, configure your project, and
+keep the entire workflow inside a native terminal application.
+
+---
+
+## Configuration
+
+OccLua supports project-level configuration, allowing settings and target
+versions to stay with the project rather than being repeatedly configured
+by hand.
 
 ```text
-❯ /obfuscate
+project
+ ├── target version
+ ├── subscription
+ └── configuration
 ```
 
-Other useful commands:
+---
 
-```text
-/status
-/version
-/project
-/projects
-/profile
-/config
-/activity
-/license
-/help
-```
+## Roadmap
 
-## Supported Versions
-
-```text
-Lua 5.1
-Lua 5.2
-Lua 5.3
-Lua 5.4
-Luau
-```
-
-Change the target from inside OccLua:
-
-```text
-❯ /version
-```
-
-## Development
-
-Clone the repository:
-
-```bash
-git clone <repository-url>
-cd OccLua
-```
-
-Build:
-
-```bash
-cargo build --release
-```
-
-Run:
-
-```bash
-cargo run --release
-```
-
-Test:
-
-```bash
-cargo test
-```
-
-## Example
-
-**Input**
-
-```lua
-local message = "Hello, world!"
-
-print(message)
-```
-
-**Protected**
-
-```lua
-local a="Hello, world!"print(a)
-```
-
-The result depends on the selected profile and target version.
-
-## Project Status
-
-OccLua is actively developed.
-
-### Available
-
-- [x] Native protection core
-- [x] Interactive CLI
-- [x] Project management
-- [x] Configuration
-- [x] Protection profiles
-- [x] Lua version selection
-- [x] Interactive autocomplete
-- [x] License interface
-
-### Planned
-
+- [x] Native Rust protection core
+- [x] Lua 5.1–5.4 support
+- [x] Luau support
+- [x] Interactive terminal UI
+- [x] Subscription-aware protection
+- [x] Project configuration
+- [x] Persistent configuration
+- [x] Autocomplete
 - [ ] Expanded transformation pipeline
 - [ ] Expanded Luau support
-- [ ] Commercial licence infrastructure
-- [ ] Additional protection profiles
+- [ ] Additional protection tiers
+- [ ] Commercial licensing infrastructure
+
+---
 
 ## Licensing
 
 OccLua is **proprietary commercial software**.
 
-The repository may be publicly visible, but the source is not released under an open-source licence. Copying, redistribution, resale, modification, reverse engineering and derivative use are restricted by the terms of [`LICENSE.md`](LICENSE.md).
+The repository may be publicly visible, but OccLua is not open-source
+software. Use, copying, redistribution, modification, reverse engineering,
+resale and derivative use are governed by [`LICENSE.md`](LICENSE.md).
 
 ---
 
 <div align="center">
 
-**☾ OccLua**
+### ☾
+
+**OccLua**
 
 *Protect your Lua. Keep your code yours.*
 
