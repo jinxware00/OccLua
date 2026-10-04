@@ -21,38 +21,83 @@ Protect your source. Ship with confidence.
 
 ---
 
-## OccLua
+## ☾ OccLua
 
 OccLua is a native Lua and Luau obfuscator built in Rust.
 
-Designed for developers who want to distribute Lua code without handing
-out clean, readable source.
+It transforms source code into a harder-to-read and harder-to-analyse form while keeping the workflow simple for developers.
 
-Configure a subscription, choose the protection available to your plan,
-and keep the workflow inside OccLua.
+Choose the protection tier that fits your project, configure your target, and obfuscate from one place.
 
 ---
 
-## Subscriptions
+## Protection Tiers
 
-OccLua uses subscription tiers to determine the protection and features
-available to you.
+OccLua has three tiers, ranging from a useful fully offline free tier to backend-native enterprise protection.
 
-| Subscription | Protection |
-|:--|:--|
-| **Basic** | Comment removal |
-| **Standard** | Comment removal + whitespace compaction |
-| **Strong** | Standard + local identifier renaming |
-| **Max** | Maximum available transformations |
+| Feature | **Basic · Free** | **Standard · Pro** | **Enterprise** |
+|:--|:--:|:--:|:--:|
+| Deployment | Offline / static | Offline / static | Backend-dependent |
+| VM virtualization | Lowest-strength | Full strength + randomized opcodes | Full strength + server-split |
+| Control-flow obfuscation | — | ✓ | ✓ |
+| Anti-tamper | — | ✓ | ✓ |
+| Runtime backend gating | — | Partial | Full |
+| Watermarking / leak tracing | — | — | ✓ |
+| License enforcement | Build-time | Build-time | Build-time + runtime |
 
-Subscription features may change as OccLua develops.
+### Basic · Free
+
+A genuinely useful offline tier for developers who want straightforward source protection without a paid subscription.
+
+- Identifier renaming and layout/comment stripping
+- Global access indirection
+- String encryption and constant pooling
+- Lowest-strength VM virtualization
+- No backend dependency
+- No control-flow obfuscation or anti-tamper
+- Free key with a usage limit and cooldown
+
+### Standard · Pro
+
+A stronger offline protection tier with advanced transformations while remaining capable of standalone deployment.
+
+- Everything in Basic
+- Full-strength VM virtualization
+- Per-build randomized opcode encoding
+- Control-flow flattening
+- Opaque predicates and bogus branches
+- Call indirection
+- Anti-tamper protections
+- Debug-hook detection
+- String re-encryption after use
+- Build-time license validation
+- Limited runtime backend gating
+
+### Enterprise
+
+The highest protection tier for software that needs backend-native protection and operational controls.
+
+- Everything in Standard
+- Full runtime fragment delivery
+- Server-side sensitive function storage
+- Incremental runtime delivery
+- Session-bound execution
+- Hardware/build fingerprint binding
+- Non-replayable runtime fragments
+- Per-build watermarking and leak tracing
+- License revocation
+- Runtime license enforcement
+- Priority support
+- White-label options
+
+> Enterprise protection depends on the OccLua backend being available.
 
 ---
 
 ## Supported Targets
 
 | Target | Status |
-|:--|:--|
+|:--|:--:|
 | Lua 5.1 | Supported |
 | Lua 5.2 | Supported |
 | Lua 5.3 | Supported |
@@ -64,15 +109,14 @@ Subscription features may change as OccLua develops.
 ## Built for Developers
 
 - Native Rust implementation
-- Interactive terminal interface
+- Lua and Luau targeting
+- Configurable protection tiers
 - Project-based configuration
 - Persistent settings
-- Subscription-based protection
-- Local identifier renaming
-- Comment removal
-- Whitespace compaction
+- Interactive terminal interface
 - Command autocomplete
-- Lua/Luau version targeting
+- Offline-capable protection
+- Backend-assisted protection on supported tiers
 
 ---
 
@@ -90,51 +134,48 @@ Then:
 occlua
 ```
 
-> The installer downloads the appropriate prebuilt OccLua binary. Rust
-> and Cargo are not required.
+The installer downloads the appropriate prebuilt OccLua binary. Rust and Cargo are not required.
 
 ---
 
-## Why OccLua?
+## Accounts & Licensing
 
-OccLua is built around a simple idea:
+OccLua uses license keys to connect your installation to the protection tier available to your account.
 
-**Give developers control over how their Lua is protected.**
+### Free
 
-Choose the subscription that fits your needs, configure your project, and
-keep the entire workflow inside a native terminal application.
+The Basic tier is available with a free key and a rolling usage limit. Once the limit is reached, the account enters a cooldown before more protected builds can be made.
+
+### Pro & Enterprise
+
+Paid subscriptions are managed through the OccLua website. After purchasing a subscription, your license key is issued to your account and can be loaded into the OccLua CLI.
+
+Keys can be stored through the CLI for normal use or supplied through an environment variable for automated workflows.
+
+```text
+occlua auth login <key>
+```
+
+For CI environments:
+
+```text
+OCCLUA_LICENSE_KEY
+```
+
+License validation is designed so the CLI can reject invalid keys locally before making unnecessary backend requests. Usage limits, subscription status, revocation and runtime-gated features are handled by the OccLua service where required.
 
 ---
 
 ## Configuration
 
-OccLua supports project-level configuration, allowing settings and target
-versions to stay with the project rather than being repeatedly configured
-by hand.
+OccLua keeps project configuration alongside your workflow, allowing settings such as the target version and protection tier to be configured without repeatedly entering them.
 
 ```text
 project
- ├── target version
- ├── subscription
+ ├── target
+ ├── tier
  └── configuration
 ```
-
----
-
-## Roadmap
-
-- [x] Native Rust protection core
-- [x] Lua 5.1–5.4 support
-- [x] Luau support
-- [x] Interactive terminal UI
-- [x] Subscription-aware protection
-- [x] Project configuration
-- [x] Persistent configuration
-- [x] Autocomplete
-- [ ] Expanded transformation pipeline
-- [ ] Expanded Luau support
-- [ ] Additional protection tiers
-- [ ] Commercial licensing infrastructure
 
 ---
 
@@ -142,17 +183,13 @@ project
 
 OccLua is **proprietary commercial software**.
 
-The repository may be publicly visible, but OccLua is not open-source
-software. Use, copying, redistribution, modification, reverse engineering,
-resale and derivative use are governed by [`LICENSE.md`](LICENSE.md).
+The repository may be publicly visible, but OccLua is not open-source software. Use, copying, redistribution, modification, reverse engineering, resale and derivative use are governed by [`LICENSE.md`](LICENSE.md).
 
 ---
 
 <div align="center">
 
-### ☾
-
-**OccLua**
+**☾ OccLua**
 
 *Protect your Lua. Keep your code yours.*
 
