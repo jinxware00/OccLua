@@ -49,7 +49,7 @@ and Cargo are not required. Binaries are **not** code signed.
 
 ### Manual install
 
-Grab the assets from the [latest release](https://github.com/jinxware00/Occlua/releases/latest):
+Grab the assets from the [latest release](https://github.com/jinxware00/OccLua/releases/latest):
 
 | Asset | What it is |
 |:--|:--|
