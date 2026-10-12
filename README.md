@@ -230,8 +230,10 @@ at fault. Project settings live under `occlua project`; show them with
 
 Basic is free and always works, with no account and no network access.
 
-Standard and Enterprise are licensed. Register or sign in, then redeem the key
-from your purchase email once; it then stays linked to your account.
+Standard and Enterprise are licensed. Every account gets a free key the moment
+it is created; register or sign in, then redeem the key from your purchase email
+to merge its tier and remaining time into that key. The source key is spent once
+it lands, so it can be handed to exactly one account.
 
 ```powershell
 occlua auth register <email>
@@ -239,6 +241,10 @@ occlua auth login <email>
 occlua auth redeem <key>
 occlua auth status
 ```
+
+A purchase is made as a **top-up** (add time to your own key; the tier rises to
+the stronger of the two and any time left carries over) or a **gift** (a fresh
+key you hand to someone else).
 
 The licensing server is the source of truth. When a key is needed the CLI
 consults, in order:
@@ -331,8 +337,13 @@ OccLua service, so their end-to-end time includes a network round-trip.
 These are current gaps, listed plainly. None of them change the behaviour of a
 protected script; they only mean a feature is not doing work yet.
 
-- **Control-flow flattening and dead-code insertion are not implemented.** The
-  `controlflow` and `deadcode` settings exist and currently do nothing.
+- **Control-flow flattening is opt-in.** It is implemented, but only runs when
+  `controlflow.enabled` and `controlflow.flatten` are both on; the `strong` and
+  `maximum` presets set them. It is off in the default and `basic`/`standard`
+  presets. `break_loops`, `dispatcher` and `max_nesting` are accepted but not
+  read yet.
+- **Dead-code insertion is not implemented.** The `deadcode` settings exist and
+  currently do nothing.
 - **The VM is not built.** `vm.enabled` has no effect.
 - **Some identifier settings are not wired up.** `strategy`, `upvalues` and
   `reserved_words` are inert; `locals`, `parameters`, `functions`, name length
@@ -351,7 +362,7 @@ protected script; they only mean a feature is not doing work yet.
 
 Planned, not yet shipped:
 
-- Control-flow flattening, opaque predicates, and randomised dead code.
+- Randomised dead code, and the flattening dispatcher's `computed` shape.
 - A register-based virtual machine with per-build randomised opcode encoding.
 - Per-build watermarking.
 - A source map for `--debug`.
@@ -375,7 +386,8 @@ with `powershell -ExecutionPolicy Bypass -File install.ps1`.
 
 **"that does not look like an OccLua license key".**
 Keys are issued by the site and redeemed once. Use the key exactly as sent, with
-`occlua auth redeem <key>`.
+`occlua auth redeem <key>`; redeeming merges its tier and remaining time into
+your account's key and spends the source key.
 
 **Paid tiers fail but Basic works.**
 Standard and Enterprise need a reachable service and a valid key. Check
