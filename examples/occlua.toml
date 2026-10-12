@@ -1,0 +1,20 @@
+version = 2
+
+[output]
+compact = true
+banner = true
+
+[strings]
+enabled = true
+encoding = "xor"
+split = true
+per_string_key = true
+decoder_complexity = 3
+
+[constants]
+intensity = 3
+
+[controlflow]
+enabled = true
+flatten = true
+opaque_predicates = true
