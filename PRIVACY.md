@@ -1,6 +1,6 @@
 # Privacy
 
-This note describes what OccLua does with your data. It is a plain description
+What OccLua does with your data. It is a plain description
 of the software's behaviour, not legal advice.
 
 ## The short version
@@ -11,21 +11,20 @@ build does send your source to that service and gets the protected result back.
 
 ## What the CLI sends
 
-- **Basic | Free.** No network access. Nothing leaves your machine.
+- **Free.** No network access. Nothing leaves your machine.
 - **Standard and Enterprise.** The CLI sends the script you asked to protect,
   the target, the profile and the seed, together with either your account
-  session or a licence key, to the OccLua service. The service returns the
+  session or a licence key, to the OccLua API. The service returns the
   protected script and a list of which stages ran. The script is processed to
   produce your output; it is not stored after the request completes.
 - **Licence checks.** When a key is needed, the CLI sends the key to the
-  service to confirm it is active and to read its tier.
+  api to confirm its activity and to read its tier.
 
-## What the service stores
+## What we store
 
-To run accounts and licences, the service keeps:
+The service keeps:
 
-- **Accounts.** Your email address, an Argon2 hash of your password (never the
-  password itself), and the times the account was created and last used.
+- **Accounts.** Your email address, an Argon2 hash of your password, and the times the account was created and last used.
 - **Sessions.** A session token per sign-in, with an expiry, so you can stay
   signed in without sending your password again.
 - **Licences.** Each key, its tier, its status, the email it was issued to, the
