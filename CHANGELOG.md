@@ -1,10 +1,5 @@
 # Changelog
 
-Releases are listed newest first. The format follows
-[Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow
-semantic versioning. This file tracks published builds, so entries appear when a
-release is cut rather than when the source changes.
-
 ## 0.1.0
 
 First public release.
